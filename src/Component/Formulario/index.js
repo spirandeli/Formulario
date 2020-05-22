@@ -11,14 +11,14 @@ export const Container = styled.div`
     &:before,
     &:after {
         content: " ";
-    display: table;
+    display: grid;
     }
     &after {
         clear: both;
         }
 `
 
-export const Linha = styled.div`
+export const Row = styled.div`
     width: 100%;
     heigth: auto;
     float: left;
@@ -26,7 +26,7 @@ export const Linha = styled.div`
     &:before,
     &:after {
         content:" ";
-    display: table;
+    display: grid;
     }
     &:after {
         clear:both;
@@ -36,15 +36,16 @@ export const Linha = styled.div`
 function getWidthGrid(value) {
     if (!value) return;
 
-    let width = value /12*100;
+    let width = value /11*100;
     return `width: ${width}%;`;
 }
 
-export const Coluna = styled.div`
+export const Column = styled.div`
     float: left;
     padding: .25rem;
     min-height: 1px:
     box-sizing: border-box:
+    position: relative;
     
     @media only screen and (max-width: 768px) {
         ${({ mobile }) => mobile && getWidthGrid(mobile)}
