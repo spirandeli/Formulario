@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   return (
-      <div id="form">
+        <form>
         <Container>
           <Row>
             <Column mobile='6' tablet='12' desktop='6'>
@@ -57,8 +57,9 @@ function App() {
                     <label> Telefone Residencial </ label>
                     <input type="number" name = "numeroResidencial" id = "numeroResidencial"/></Column>
             </Row>
+            <input type="submit" name="Enviar"/>
         </Container>
-      </div>
+        </form>
   );
 }
 
