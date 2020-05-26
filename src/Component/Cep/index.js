@@ -75,7 +75,7 @@ function Cep () {
         }
     };
 
-    const [cep, setCep] = useState();
+    const [cep, setCep] = useState("");
 
 
 
@@ -85,8 +85,8 @@ function Cep () {
 
             <Column>
             <label>Cep </label>
-                <input onChange={useState(0, setCep)} name="cep" type="text" id="cep" value="" size="10" maxLength="9"
-                       onBlur="pesquisacep(this.value);"/>
+                <input onChange={e => setCep(e.target.value)} name="cep" type="text" id="cep" value={cep} size="10" maxLength="9"
+                       onBlur={i => pesquisacep(i.target.value)}/>
             </Column>
             <Column>
             <label> Cidade </label>
