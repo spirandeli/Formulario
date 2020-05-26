@@ -44,12 +44,6 @@ function App() {
                 <Row>
 
                     <Column mobile='6' tablet='12' desktop='6'>
-                        <label> Bairro </ label>
-                        <input onChange={handleChange} name = "bairro" id = "bairro" />
-                    </Column>
-
-
-                    <Column mobile='6' tablet='12' desktop='6'>
                         <label> Complemento </ label>
                         <input onChange={handleChange} id="complemento" name="complemento"/>
                     </Column>

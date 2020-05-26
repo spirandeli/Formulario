@@ -86,15 +86,19 @@ function Cep () {
             <Column>
             <label>Cep </label>
                 <input onChange={e => setCep(e.target.value)} name="cep" type="text" id="cep" value={cep} size="10" maxLength="9"
-                       onBlur={i => pesquisacep(i.target.value)}/>
+                       onBlur="pesquisacep(target.value)"/>
             </Column>
             <Column>
             <label> Cidade </label>
-                <input name="cidade" type="text" id="cidade" size="40"/>
+                <input name="cidade" type="text" id="cidade" size="40" />
             </Column>
             <Column>
                 <label>Estado </label>
                 <Uf id="uf"/> </Column>
+            <Column>
+                <label> Bairro </label>
+                <input name="bairro" type="text" id="bairro" size="40" />
+            </Column>
         </form>)
 }
 
