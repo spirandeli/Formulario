@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import Axios from "axios";
 import {Column, Row} from "../Formulario";
 import Uf from "../UF";
+import {useForm} from "react-hook-form";
+
+
 
 function Cep () {
 
@@ -17,11 +20,10 @@ function Cep () {
     function meu_callback(conteudo) {
         if (!("erro" in conteudo)) {
             //Atualiza os campos com os valores.
-            document.getElementById('rua').value=(conteudo.logradouro);
             document.getElementById('bairro').value=(conteudo.bairro);
-            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('cidade').value=(conteudo.cidade);
             document.getElementById('uf').value=(conteudo.uf);
-            document.getElementById('ibge').value=(conteudo.ibge);
+
         } //end if.
         else {
             //CEP não Encontrado.
@@ -49,7 +51,7 @@ function Cep () {
                 document.getElementById('bairro').value="...";
                 document.getElementById('cidade').value="...";
                 document.getElementById('uf').value="...";
-                document.getElementById('ibge').value="...";
+
 
                 //Cria um elemento javascript.
                 var script = document.createElement('script');
@@ -73,12 +75,17 @@ function Cep () {
         }
     };
 
+    const [cep, setCep] = useState();
+
+
+
+
     return(
         <form method="get" action=".">
 
             <Column>
             <label>Cep </label>
-                <input name="cep" type="text" id="cep" value="" size="10" maxLength="9"
+                <input onChange={useState(0, setCep)} name="cep" type="text" id="cep" value="" size="10" maxLength="9"
                        onBlur="pesquisacep(this.value);"/>
             </Column>
             <Column>
@@ -87,7 +94,7 @@ function Cep () {
             </Column>
             <Column>
                 <label>Estado </label>
-                <Uf/> </Column>
+                <Uf id="uf"/> </Column>
         </form>)
 }
 
