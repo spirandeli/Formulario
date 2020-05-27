@@ -8,6 +8,7 @@ import {useForm} from "react-hook-form";
 
 function Cep () {
 
+
     function limpa_formulário_cep() {
         //Limpa valores do formulário de cep.
         document.getElementById('rua').value=("");
@@ -43,6 +44,8 @@ function Cep () {
             //Expressão regular para validar o CEP.
             var validacep = /^[0-9]{8}$/;
 
+
+
             //Valida o formato do CEP.
             if(validacep.test(cep)) {
 
@@ -57,7 +60,7 @@ function Cep () {
                 var script = document.createElement('script');
 
                 //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+                script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
 
                 //Insere script no documento e carrega o conteúdo.
                 document.body.appendChild(script);
@@ -83,19 +86,19 @@ function Cep () {
     return(
         <form method="get" action=".">
 
-            <Column>
+            <Column mobile='6' tablet='12' desktop='6'>
             <label>Cep </label>
                 <input onChange={e => setCep(e.target.value)} name="cep" type="text" id="cep" value={cep} size="10" maxLength="9"
-                       onBlur="pesquisacep(target.value)"/>
+                       onBlur={o => pesquisacep(o.target.value)}/>
             </Column>
-            <Column>
+            <Column mobile='6' tablet='12' desktop='6'>
             <label> Cidade </label>
                 <input name="cidade" type="text" id="cidade" size="40" />
             </Column>
-            <Column>
+            <Column mobile='6' tablet='12' desktop='6'>
                 <label>Estado </label>
                 <Uf id="uf"/> </Column>
-            <Column>
+            <Column mobile='6' tablet='12' desktop='6'>
                 <label> Bairro </label>
                 <input name="bairro" type="text" id="bairro" size="40" />
             </Column>
