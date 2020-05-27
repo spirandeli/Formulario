@@ -36,21 +36,17 @@ function Cep () {
             //Valida o formato do CEP.
             if(validacep.test(cep)) {
 
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value="...";
-                document.getElementById('bairro').value="...";
-                document.getElementById('cidade').value="...";
-                document.getElementById('uf').value="...";
-
 
                 Axios.get('https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback')
                     .then(function meu_callback(response) {
                         if (!("erro" in response)) {
-                            //Atualiza os campos com os valores.
-                            document.getElementById('bairro').value=(response.bairro);
-                            document.getElementById('cidade').value=(response.cidade);
-                            document.getElementById('uf').value=(response.uf);
-                            document.getElementById('rua').value=(response.rua);
+
+                            document.getElementById('rua').value=(rua)
+                            document.getElementById('bairro').value=(bairro)
+                            document.getElementById('cidade').value=(cidade)
+                            document.getElementById('uf').value=(estado)
+
+
 
                         } //end if.
                         else {
@@ -75,17 +71,42 @@ function Cep () {
         }
     };
 
-    const [cep, setCep] = useState("");
+    let [cep, setCep, bairro, setBairro, rua, setRua, cidade, setCidade, estado, setEstado] = useState("");
 
 
 
 
     return(
-        <Column mobile='6' tablet='12' desktop='6'>
-            <label>Cep </label>
-            <input onChange={e => setCep(e.target.value)} name="cep" type="text" id="cep" value={cep} size="10" maxLength="9"
+        <form>
+        <Row>
+            <Column mobile='6' tablet='12' desktop='6'>
+                <label>Cep </label>
+                <input onChange={e => setCep(e.target.value)} name="cep" type="text" id="cep" value={cep} size="10" maxLength="9"
                    onBlur={o => pesquisacep(o.target.value)}/>
-        </Column>
+           </Column>
+
+            <Column mobile='6' tablet='12' desktop='6'>
+                <label> Bairro </label>
+                <input name="bairro" onChange={l => setBairro(l.target.value)} value={bairro} type="text" id="bairro" size="40" />
+            </Column>
+
+
+            <Column mobile='6' tablet='12' desktop='6'>
+                <label> Cidade </label>
+                <input onChange={p => setCidade(p.target.value)} name="cidade" value={cidade} type="text" id="cidade" size="40" />
+            </Column>
+        </Row>
+        <Row>
+            <Column mobile='6' tablet='12' desktop='6'>
+                <label>Estado </label>
+                <Uf id="uf" onChange={q => setEstado(q.target.value)} value={estado} /> </Column>
+
+            <Column mobile='6' tablet='12' desktop='6'>
+                <label> Rua </ label>
+                <input onChange={p => setRua(p.target.value)} value={rua} id="rua" name="rua"/>
+            </Column>
+        </Row>
+        </form>
     )
 }
 

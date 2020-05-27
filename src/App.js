@@ -38,26 +38,10 @@ function App() {
                   </Column>
                   </Row>
 
-                <Row>
+
                     <Cep />
 
-                    <Column mobile='6' tablet='12' desktop='6'>
-                        <label> Cidade </label>
-                        <input name="cidade" type="text" id="cidade" size="40" />
-                    </Column>
-
-                    <Column mobile='6' tablet='12' desktop='6'>
-                        <label>Estado </label>
-                        <Uf id="uf"/> </Column>
-
-                </Row>
                 <Row>
-
-                    <Column mobile='6' tablet='12' desktop='6'>
-                        <label> Rua </ label>
-                        <input onChange={handleChange} id="rua" name="rua"/>
-                    </Column>
-
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Complemento </ label>
                         <input onChange={handleChange} id="complemento" name="complemento"/>
@@ -70,10 +54,6 @@ function App() {
                 </Row>
                 <Row>
 
-                    <Column mobile='6' tablet='12' desktop='6'>
-                        <label> Bairro </label>
-                        <input name="bairro" type="text" id="bairro" size="40" />
-                    </Column>
 
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Telefone Celular </ label>
