@@ -11,10 +11,10 @@ function Cep () {
 
     function limpa_formulário_cep() {
         //Limpa valores do formulário de cep.
-        rua.targetvalue=("...");
-        bairro.targetvalue=("...");
-        cidade.targetvalue=("...");
-        estado.targetvalue=("...");
+        rua.value=("...");
+        bairro.value=("...");
+        cidade.value=("...");
+        estado.value=("...");
     }
 
 
@@ -42,10 +42,10 @@ function Cep () {
 
                             console.log(response.data)
 
-                          /*  rua.targetvalue = ("logadouro", response.data)
-                            bairro.targetvalue = ("bairro", response.data)
-                            cidade.targetvalue = ("localidade",response.data)
-                            estado.targetvalue = ("uf", response.data)*/
+                          /*  rua.value = ("logadouro", response.data)
+                            bairro.value = ("bairro", response.data)
+                            cidade.value = ("localidade",response.data)
+                            estado.value = ("uf", response.data)*/
 
 
 
