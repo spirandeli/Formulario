@@ -43,7 +43,7 @@ function Cep () {
                 document.getElementById('uf').value="...";
 
 
-                Axios.get('https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback')
+                Axios.get('https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback')
                     .then(function meu_callback(response) {
                         if (!("erro" in response)) {
                             //Atualiza os campos com os valores.
@@ -81,25 +81,12 @@ function Cep () {
 
 
     return(
-        <form method="get" action=".">
-
-            <Column mobile='6' tablet='12' desktop='6'>
+        <Column mobile='6' tablet='12' desktop='6'>
             <label>Cep </label>
-                <input onChange={e => setCep(e.target.value)} name="cep" type="text" id="cep" value={cep} size="10" maxLength="9"
-                       onBlur={o => pesquisacep(o.target.value)}/>
-            </Column>
-            <Column mobile='6' tablet='12' desktop='6'>
-            <label> Cidade </label>
-                <input name="cidade" type="text" id="cidade" size="40" />
-            </Column>
-            <Column mobile='6' tablet='12' desktop='6'>
-                <label>Estado </label>
-                <Uf id="uf"/> </Column>
-            <Column mobile='6' tablet='12' desktop='6'>
-                <label> Bairro </label>
-                <input name="bairro" type="text" id="bairro" size="40" />
-            </Column>
-        </form>)
+            <input onChange={e => setCep(e.target.value)} name="cep" type="text" id="cep" value={cep} size="10" maxLength="9"
+                   onBlur={o => pesquisacep(o.target.value)}/>
+        </Column>
+    )
 }
 
 export default Cep;
