@@ -11,11 +11,10 @@ function Cep () {
 
     function limpa_formulário_cep() {
         //Limpa valores do formulário de cep.
-        document.getElementById('rua').value=("");
-        document.getElementById('bairro').value=("");
-        document.getElementById('cidade').value=("");
-        document.getElementById('uf').value=("");
-        document.getElementById('ibge').value=("");
+        rua.targetvalue=("...");
+        bairro.targetvalue=("...");
+        cidade.targetvalue=("...");
+        estado.targetvalue=("...");
     }
 
 
@@ -38,13 +37,15 @@ function Cep () {
 
 
                 Axios.get('https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback')
-                    .then(function meu_callback(response) {
+                    .then(function (response) {
                         if (!("erro" in response)) {
 
-                            document.getElementById('rua').value=(rua)
-                            document.getElementById('bairro').value=(bairro)
-                            document.getElementById('cidade').value=(cidade)
-                            document.getElementById('uf').value=(estado)
+                            console.log(response.data)
+
+                          /*  rua.targetvalue = ("logadouro", response.data)
+                            bairro.targetvalue = ("bairro", response.data)
+                            cidade.targetvalue = ("localidade",response.data)
+                            estado.targetvalue = ("uf", response.data)*/
 
 
 
