@@ -18,20 +18,7 @@ function Cep () {
         document.getElementById('ibge').value=("");
     }
 
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('bairro').value=(conteudo.bairro);
-            document.getElementById('cidade').value=(conteudo.cidade);
-            document.getElementById('uf').value=(conteudo.uf);
 
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-            alert("CEP não encontrado.");
-        }
-    }
 
     function pesquisacep(valor) {
 
@@ -56,14 +43,23 @@ function Cep () {
                 document.getElementById('uf').value="...";
 
 
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
+                Axios.get('https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback')
+                    .then(function meu_callback(response) {
+                        if (!("erro" in response)) {
+                            //Atualiza os campos com os valores.
+                            document.getElementById('bairro').value=(response.bairro);
+                            document.getElementById('cidade').value=(response.cidade);
+                            document.getElementById('uf').value=(response.uf);
+                            document.getElementById('rua').value=(response.rua);
 
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+                        } //end if.
+                        else {
+                            //CEP não Encontrado.
+                            limpa_formulário_cep();
+                            alert("CEP não encontrado.");
+                        }
+                    });
 
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
 
             } //end if.
             else {

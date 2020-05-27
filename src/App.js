@@ -39,7 +39,7 @@ function App() {
                   </Row>
 
                 <Row>
-                <Cep />
+                <Cep onChange={handleChange}/>
                 </Row>
                 <Row>
 
