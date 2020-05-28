@@ -1,9 +1,10 @@
 import React,{useState} from 'react';
-import Uf from "./Component/UF"
+import InputMask from 'react-input-mask';
 import  {Container, Row, Column} from "./Component/Formulario";
 import './App.css'
 import Cep from "./Component/Cep";
 import useForm from "./Hooks/useForm";
+import mascaraDeTelefone from "./Component/Mascaras";
 
 
 function App() {
@@ -17,9 +18,9 @@ function App() {
 
     return (
         <form method="get" action="." onSubmit={handleSubmit(enviarContato)}>
-        <div>
-            <Container />
-              <Row>
+            <div>
+                <Container />
+                <Row>
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Nome </ label>
                         <input onChange={handleChange} name = "name" className = "controle de formulário"
@@ -27,19 +28,19 @@ function App() {
                     </Column>
 
                     <Column mobile='6' tablet='12' desktop='6'>
-                          <label> Data de Nascimento </ label>
+                        <label> Data de Nascimento </ label>
                         <input onChange={handleChange} type="date" id="start" name="dataNascimento"
-                        value="1998-03-14" min="1910-01-01" max="2005-01-01"/>
+                                min="1910-01-01" max="2005-01-01"/>
                     </Column>
 
-                  <Column mobile='6' tablet='12' desktop='6'>
-                      <label> Cpf </ label>
-                      <input onChange={handleChange} type="number" name = "cpf" id = "cpf" placeholder = "Digite o seu cpf"/>
-                  </Column>
-                  </Row>
+                    <Column mobile='6' tablet='12' desktop='6'>
+                        <label> Cpf </ label>
+                        <input onChange={handleChange} type="number" name = "cpf" id = "cpf" placeholder = "Digite o seu cpf"/>
+                    </Column>
+                </Row>
 
 
-                    <Cep />
+                <Cep />
 
                 <Row>
                     <Column mobile='6' tablet='12' desktop='6'>
@@ -47,26 +48,26 @@ function App() {
                         <input onChange={handleChange} id="complemento" name="complemento"/>
                     </Column>
 
-                        <Column mobile='6' tablet='12' desktop='6'>
-                            <label> Numero </ label>
-                            <input onChange={handleChange} type="number" name = "numero" id = "numero"/>
-                        </Column>
+                    <Column mobile='6' tablet='12' desktop='6'>
+                        <label> Numero </ label>
+                        <input onChange={handleChange} type="number" name = "numero" id = "numero"/>
+                    </Column>
                 </Row>
                 <Row>
 
 
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Telefone Celular </ label>
-                        <input onChange={handleChange} type="number" name = "numeroCelular" id = "numeroCelular"/></Column>
+                        <InputMask onChange={handleChange} type="tel" name="telefone" id="telefone"  mask="(99) 99999-9999"  /></Column>
 
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Telefone Residencial </ label>
-                        <input onChange={handleChange} type="number" name = "numeroResidencial" id = "numeroResidencial"/></Column>
+                        <InputMask onChange={handleChange} type="tel" name = "numeroResidencial" id = "numeroResidencial" mask="(99)9999-9999"/></Column>
                 </Row>
                 <input type="submit" name="Enviar"/>
-        </div>
+            </div>
         </form>
-  );
+    );
 }
 
 export default App;
