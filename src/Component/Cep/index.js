@@ -1,6 +1,5 @@
 import React, {useState, version} from "react";
 import Axios from "axios";
-import InputMask from 'react-input-mask';
 import {Column, Row, Container} from "../Formulario";
 import {useForm} from "react-hook-form";
 
@@ -43,7 +42,7 @@ function Cep () {
                         if (!("erro" in data)) {
 
                             console.log(data.data)
-
+                            setCep(data.data.cep)
                             setRua(data.data.logradouro)
                             setBairro(data.data.bairro)
                             setCidade(data.data.localidade)
@@ -89,7 +88,7 @@ function Cep () {
             <Row>
                 <Column mobile='6' tablet='12' desktop='6'>
                     <label>Cep </label>
-                    <InputMask onChange={e => setCep(e.target.value)} name="cep" type="cep" id="cep" value={cep} size="10" maxLength="9" mask="99999-999"
+                    <input onChange={e => setCep(e.target.value)} name="cep" type="text" id="cep" value={cep} size="10" maxLength="9"
                            onBlur={o => pesquisacep(o.target.value)}/>
                 </Column>
 
