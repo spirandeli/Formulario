@@ -4,6 +4,7 @@ import  {Container, Row, Column} from "./Component/Formulario";
 import './App.css'
 import Cep from "./Component/Cep";
 import useForm from "./Hooks/useForm";
+import validadorCpf from "./Component/ValidadorCpf";
 import mascaraDeTelefone from "./Component/Mascaras";
 
 
@@ -33,10 +34,8 @@ function App() {
                                 min="1910-01-01" max="2005-01-01"/>
                     </Column>
 
-                    <Column mobile='6' tablet='12' desktop='6'>
-                        <label> Cpf </ label>
-                        <input onChange={handleChange} type="number" name = "cpf" id = "cpf" placeholder = "Digite o seu cpf"/>
-                    </Column>
+                    <validadorCpf/>
+
                 </Row>
 
 
