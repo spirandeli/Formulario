@@ -4,7 +4,7 @@ import  {Container, Row, Column} from "./Component/Formulario";
 import './App.css'
 import Cep from "./Component/Cep";
 import useForm from "./Hooks/useForm";
-import validadorCpf from "./Component/ValidadorCpf";
+import Cpf from "./Component/ValidadorCpf";
 import mascaraDeTelefone from "./Component/Mascaras";
 
 
@@ -34,7 +34,7 @@ function App() {
                                 min="1910-01-01" max="2005-01-01"/>
                     </Column>
 
-                    <validadorCpf/>
+                    <Cpf/>
 
                 </Row>
 

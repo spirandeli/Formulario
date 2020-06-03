@@ -41,7 +41,6 @@ function Cep () {
                     .then(function (data) {
                         if (!("erro" in data)) {
 
-                            console.log(data.data)
                             setCep(data.data.cep)
                             setRua(data.data.logradouro)
                             setBairro(data.data.bairro)
