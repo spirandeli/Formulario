@@ -15,7 +15,13 @@ function App() {
     const enviarContato = () => {
         console.log(values);
     }
+    const [nome, setNome] = useState("")
 
+    const verificarNome = () => {
+        if(nome == "" || nome.length < 3){
+            alert("Preencha novamente seu nome")
+        }
+    }
 
     return (
         <form method="get" action="." onSubmit={handleSubmit(enviarContato)}>
@@ -24,8 +30,10 @@ function App() {
                 <Row>
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Nome </ label>
-                        <input onChange={handleChange} name = "name" className = "controle de formulário"
-                               id = "name" placeholder = "Nome Completo"/>
+                        <input onChange={e => setNome(e.target.value)} name = "nome" value={nome}
+                               onBlur={e => verificarNome(e.target.value)}
+                               className = "controle de formulário"
+                               id = "nome" placeholder = "Nome Completo"/>
                     </Column>
 
                     <Column mobile='6' tablet='12' desktop='6'>

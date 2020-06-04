@@ -16,6 +16,7 @@ const useForm = (callback) => {
         callback();
         setLoading(false);
     };
+
     return [{ values, loading }, handleChange, handleSubmit];
 };
 

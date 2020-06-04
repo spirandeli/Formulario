@@ -64,7 +64,7 @@ function Cpf() {
             <label> Cpf </ label>
             <input onChange={e => setCpf(e.target.value)} onBlur={e => validadorCpf(e.target.value)}
                    type="text" value={cpf} name = "cpf" id = "cpf" placeholder = "Digite o seu cpf"
-            maxLength={11} minLength={11}/>
+            maxLength={14} minLength={14}/>
         </Column>
     )
 
