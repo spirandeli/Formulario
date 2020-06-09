@@ -5,7 +5,7 @@ import './App.css'
 import Cep from "./Component/Cep";
 import useForm from "./Hooks/useForm";
 import Cpf from "./Component/ValidadorCpf";
-import mascaraDeTelefone from "./Component/Mascaras";
+import mascaraDeTelefone from "./Component/Mascaras"; 
 
 
 function App() {

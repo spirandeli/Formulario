@@ -11,6 +11,8 @@ function Cpf() {
 
 
     function validadorCpf(){
+        
+
         const split = cpf.split("");
         const num1 = split[0]
         const num2 = split[1]
@@ -45,7 +47,12 @@ function Cpf() {
             }
 
             if ((resto1 == num10) && (resto2 == num11)){
-                return alert("Cpf Valido")
+                const cpfAtual = cpf 
+
+                cpfAtual.RegExp(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/);
+                setCpf = cpfAtual
+                return (alert("Cpf Valido"))
+
             }else{
                 return alert("Cpf Invalido")
             }
@@ -57,14 +64,11 @@ function Cpf() {
 
 
 
-
-
     return (
         <Column mobile='6' tablet='12' desktop='6'>
             <label> Cpf </ label>
             <input onChange={e => setCpf(e.target.value)} onBlur={e => validadorCpf(e.target.value)}
-                   type="text" value={cpf} name = "cpf" id = "cpf" placeholder = "Digite o seu cpf"
-            maxLength={14} minLength={14}/>
+                   type="text" value={cpf} name = "cpf" id = "cpf" placeholder = "Digite o seu cpf"/>
         </Column>
     )
 
