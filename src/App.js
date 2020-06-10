@@ -6,7 +6,6 @@ import Cep from "./Component/Cep";
 import useForm from "./Hooks/useForm";
 import Cpf from "./Component/ValidadorCpf";
 import mascaraDeTelefone from "./Component/Mascaras"; 
-import Resultado from "./Component/Resultado"
 
 
 function App() {
@@ -34,14 +33,33 @@ function App() {
     const [celular, setCelular] = useState("")
     const [residencial, setResidencial] = useState("")
 
-    const verificarNome = () => {
+    const verificarNome = () => {''
         if(nome == "" || nome.length < 3){
             alert("Preencha novamente seu nome")
         }
     }
 
+    const verificarDataNascimento = () => {''
+        if(dataNascimento == "" || dataNascimento.length < 8){
+            alert("Preencha novamente sua idade")
+        }
+    }
+    
+    const verificarCelular = () => {''
+        if(celular == "" || celular.length < 11){
+            alert("Preencha novamente seu celular")
+        }
+    }
+
+    const verificarTelefone = () => {''
+        if(residencial == "" || residencial.length < 3){
+            alert("Preencha novamente seu telefone")
+        }
+    }
+
     function resultado(){
-        alert(nome, dataNascimento, complemento,celular,residencial,cep, bairro,rua,cidade,estado,cpf)
+        alert(`${nome}, ${cpf}, ${dataNascimento}, ${celular}, ${residencial}, ${cep}, ${estado}, 
+                ${cidade}, ${bairro}, ${rua}, ${complemento} `)
     }
 
     return (
@@ -60,7 +78,7 @@ function App() {
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Data de Nascimento </ label>
                         <input onChange={e => setdataNascimento(e.target.value)} value={dataNascimento} type="date" id="start" name="dataNascimento"
-                                min="1910-01-01" max="2005-01-01"/>
+                                min="1910-01-01" max="2005-01-01" onBlur={e => verificarDataNascimento(e.target.value)}/>
                     </Column>
 
                     <Cpf cpf={cpf} setCpf={setCpf}/>
@@ -69,7 +87,7 @@ function App() {
 
 
                 <Cep cep={cep} setCep={setCep} bairro={bairro} setBairro={setBairro}
-                 cidade={setCidade} rua = {rua} setRua={setRua} estado={estado} setEstado={setEstado} />
+                 cidade={cidade} setCidade={setCidade} rua = {rua} setRua={setRua} estado={estado} setEstado={setEstado} />
 
                 <Row>
                     <Column mobile='6' tablet='12' desktop='6'>
@@ -93,7 +111,7 @@ function App() {
                         <label> Telefone Residencial </ label>
                         <InputMask onChange={e => setResidencial(e.target.value)} value={residencial} type="tel" name = "numeroResidencial" id = "numeroResidencial" mask="(99)9999-9999"/></Column>
                 </Row>
-                <input type="submit" name="Enviar" onClick={resultado()}><Resultado/> </input>
+                <input type="submit" name="Enviar"  onClick={() => resultado()}/>
             </div>
         </form>
     );
