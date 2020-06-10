@@ -11,6 +11,18 @@ import Resultado from "./Component/Resultado"
 
 function App() {
 
+    const [cep, setCep] = useState("");
+
+    const [bairro, setBairro] = useState("");
+
+    const [rua, setRua] = useState("");
+
+    const [cidade, setCidade] = useState("");
+
+    const [estado, setEstado] = useState("");
+
+    const [cpf, setCpf] = useState("");
+
     const [{ values, loading }, handleChange, handleSubmit] = useForm();
 
     const enviarContato = () => {
@@ -27,6 +39,10 @@ function App() {
             alert("Preencha novamente seu nome")
         }
     }
+
+    /*function resultado(){
+        alert(nome, dataNascimento, complemento,celular,residencial,cep, bairro,rua,cidade,estado,cpf)
+    }*/
 
     return (
         <form method="get" action="." onSubmit={handleSubmit(enviarContato)}>
@@ -47,12 +63,13 @@ function App() {
                                 min="1910-01-01" max="2005-01-01"/>
                     </Column>
 
-                    <Cpf/>
+                    <Cpf cpf={cpf} setCpf={setCpf}/>
 
                 </Row>
 
 
-                <Cep />
+                <Cep cep={cep} setCep={setCep} bairro={bairro} setBairro={setBairro}
+                 cidade={setCidade} rua = {rua} setRua={setRua} estado={estado} setEstado={setEstado} />
 
                 <Row>
                     <Column mobile='6' tablet='12' desktop='6'>
@@ -82,4 +99,4 @@ function App() {
     );
 }
 
-export default {App,nome, dataNascimento, complemento, celular, residencial };
+export default App;

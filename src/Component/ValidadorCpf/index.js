@@ -5,9 +5,9 @@ import IntputMask from "react-input-mask"
 
 
 
-function Cpf() {
+function Cpf(props) {
 
-    const [cpf, setCpf] = useState("");
+    const [cpf, setCpf] = props;
     
     
 
@@ -77,4 +77,4 @@ function Cpf() {
     )
 
 }
-export default {Cpf,cpfNumbers};
+export default Cpf;

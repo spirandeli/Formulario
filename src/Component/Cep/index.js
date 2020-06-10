@@ -6,8 +6,17 @@ import {useForm} from "react-hook-form";
 
 
 
-function Cep () {
+function Cep (props) {
 
+    const [cep, setCep] = props;
+
+    const [bairro, setBairro] = props;
+
+    const [rua, setRua] = props;
+
+    const [cidade, setCidade] = props;
+
+    const [estado, setEstado] = props;
 
     function limpa_formulário_cep() {
         //Limpa valores do formulário de cep.
@@ -72,15 +81,7 @@ function Cep () {
         }
     };
 
-    const [cep, setCep] = useState("");
-
-    const [bairro, setBairro] = useState("");
-
-    const [rua, setRua] = useState("");
-
-    const [cidade, setCidade] = useState("");
-
-    const [estado, setEstado] = useState("");
+    
 
     return(
         <form>
@@ -146,4 +147,4 @@ function Cep () {
     )
 }
 
-export default {Cep, cep,bairro,estado,rua,cidade};
+export default Cep;
