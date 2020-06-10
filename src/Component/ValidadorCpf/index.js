@@ -7,7 +7,7 @@ import IntputMask from "react-input-mask"
 
 function Cpf(props) {
 
-    const [cpf, setCpf] = props;
+    const {cpf, setCpf} = props;
     
     
 

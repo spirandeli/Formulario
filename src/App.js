@@ -40,9 +40,9 @@ function App() {
         }
     }
 
-    /*function resultado(){
+    function resultado(){
         alert(nome, dataNascimento, complemento,celular,residencial,cep, bairro,rua,cidade,estado,cpf)
-    }*/
+    }
 
     return (
         <form method="get" action="." onSubmit={handleSubmit(enviarContato)}>
@@ -93,7 +93,7 @@ function App() {
                         <label> Telefone Residencial </ label>
                         <InputMask onChange={e => setResidencial(e.target.value)} value={residencial} type="tel" name = "numeroResidencial" id = "numeroResidencial" mask="(99)9999-9999"/></Column>
                 </Row>
-                <input type="submit" name="Enviar"><Resultado/> </input>
+                <input type="submit" name="Enviar" onClick={resultado()}><Resultado/> </input>
             </div>
         </form>
     );

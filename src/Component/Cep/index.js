@@ -8,15 +8,15 @@ import {useForm} from "react-hook-form";
 
 function Cep (props) {
 
-    const [cep, setCep] = props;
+    const {cep, setCep} = props;
 
-    const [bairro, setBairro] = props;
+    const {bairro, setBairro} = props;
 
-    const [rua, setRua] = props;
+    const {rua, setRua} = props;
 
-    const [cidade, setCidade] = props;
+    const {cidade, setCidade} = props;
 
-    const [estado, setEstado] = props;
+    const {estado, setEstado} = props;
 
     function limpa_formulário_cep() {
         //Limpa valores do formulário de cep.
