@@ -8,9 +8,14 @@ function Cpf() {
 
     const [cpf, setCpf] = useState("");
 
+    function cpfAtualizado(){
+       cpf.replace(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)
+       console.log(cpf) 
+    }
 
 
     function validadorCpf(){
+        
         
 
         const split = cpf.split("");
@@ -47,11 +52,9 @@ function Cpf() {
             }
 
             if ((resto1 == num10) && (resto2 == num11)){
-                const cpfAtual = cpf 
-
-                cpfAtual.RegExp(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/);
-                setCpf = cpfAtual
-                return (alert("Cpf Valido"))
+                
+                return (alert("Cpf Valido"), cpfAtualizado())
+                
 
             }else{
                 return alert("Cpf Invalido")
