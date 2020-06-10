@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {Column} from "../Formulario";
+import IntputMask from "react-input-mask"
 
 
 
@@ -7,18 +8,18 @@ import {Column} from "../Formulario";
 function Cpf() {
 
     const [cpf, setCpf] = useState("");
-
-    function cpfAtualizado(){
-       cpf.replace(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/)
-       console.log(cpf) 
-    }
+    
+    
 
 
     function validadorCpf(){
-        
+        let novoCpf = cpf
+        let cpfNumbers = novoCpf.replace(/\D/g,"")
+        console.log(cpfNumbers) 
+      
         
 
-        const split = cpf.split("");
+        const split = cpfNumbers.split("");
         const num1 = split[0]
         const num2 = split[1]
         const num3 = split[2]
@@ -53,7 +54,7 @@ function Cpf() {
 
             if ((resto1 == num10) && (resto2 == num11)){
                 
-                return (alert("Cpf Valido"), cpfAtualizado())
+                return (alert("Cpf Valido"))
                 
 
             }else{
@@ -70,10 +71,10 @@ function Cpf() {
     return (
         <Column mobile='6' tablet='12' desktop='6'>
             <label> Cpf </ label>
-            <input onChange={e => setCpf(e.target.value)} onBlur={e => validadorCpf(e.target.value)}
-                   type="text" value={cpf} name = "cpf" id = "cpf" placeholder = "Digite o seu cpf"/>
+            <IntputMask onChange={e => setCpf(e.target.value)} mask="999.999.999-99" onBlur={e => validadorCpf(e.target.value)}
+                   type="tel" value={cpf} name = "cpf" id = "cpf" placeholder = "Digite o seu cpf"/>
         </Column>
     )
 
 }
-export default Cpf;
+export default {Cpf,cpfNumbers};

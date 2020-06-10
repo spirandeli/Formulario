@@ -6,6 +6,7 @@ import Cep from "./Component/Cep";
 import useForm from "./Hooks/useForm";
 import Cpf from "./Component/ValidadorCpf";
 import mascaraDeTelefone from "./Component/Mascaras"; 
+import Resultado from "./Component/Resultado"
 
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
         console.log(values);
     }
     const [nome, setNome] = useState("")
+    const [dataNascimento, setdataNascimento] = useState("")
+    const [complemento, setComplemento] = useState("")
+    const [celular, setCelular] = useState("")
+    const [residencial, setResidencial] = useState("")
 
     const verificarNome = () => {
         if(nome == "" || nome.length < 3){
@@ -38,7 +43,7 @@ function App() {
 
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Data de Nascimento </ label>
-                        <input onChange={handleChange} type="date" id="start" name="dataNascimento"
+                        <input onChange={e => setdataNascimento(e.target.value)} value={dataNascimento} type="date" id="start" name="dataNascimento"
                                 min="1910-01-01" max="2005-01-01"/>
                     </Column>
 
@@ -57,7 +62,7 @@ function App() {
 
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Numero </ label>
-                        <input onChange={handleChange} type="number" name = "numero" id = "numero"/>
+                        <input onChange={e => setComplemento(e.target.value)} value={complemento} type="number" name = "numero" id = "numero"/>
                     </Column>
                 </Row>
                 <Row>
@@ -65,16 +70,16 @@ function App() {
 
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Telefone Celular </ label>
-                        <InputMask onChange={handleChange} type="tel" name="telefone" id="telefone"  mask="(99) 99999-9999"  /></Column>
+                        <InputMask onChange={e => setCelular(e.target.value)} value={celular} type="tel" name="telefone" id="telefone"  mask="(99) 99999-9999"  /></Column>
 
                     <Column mobile='6' tablet='12' desktop='6'>
                         <label> Telefone Residencial </ label>
-                        <InputMask onChange={handleChange} type="tel" name = "numeroResidencial" id = "numeroResidencial" mask="(99)9999-9999"/></Column>
+                        <InputMask onChange={e => setResidencial(e.target.value)} value={residencial} type="tel" name = "numeroResidencial" id = "numeroResidencial" mask="(99)9999-9999"/></Column>
                 </Row>
-                <input type="submit" name="Enviar"/>
+                <input type="submit" name="Enviar"><Resultado/> </input>
             </div>
         </form>
     );
 }
 
-export default App;
+export default {App,nome, dataNascimento, complemento, celular, residencial };

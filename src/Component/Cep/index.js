@@ -146,4 +146,4 @@ function Cep () {
     )
 }
 
-export default Cep;
+export default {Cep, cep,bairro,estado,rua,cidade};
