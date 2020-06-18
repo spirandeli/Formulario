@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import InputMask from 'react-input-mask';
 import  {Container, Row, Column} from "./Component/Formulario";
 import './App.css'
@@ -6,6 +6,10 @@ import Cep from "./Component/Cep";
 import useForm from "./Hooks/useForm";
 import Cpf from "./Component/ValidadorCpf";
 import mascaraDeTelefone from "./Component/Mascaras"; 
+import ThemeContext from "./Component/Temas";
+import AppTheme from "./Component/Temas";
+import Switch from "react-switch";
+
 
 
 function App() {
@@ -62,9 +66,15 @@ function App() {
                 ${cidade}, ${bairro}, ${rua}, ${complemento} `)
     }
 
+
+    const themeHook = useState("light");
+    const[themeMode, setThemeMode] = useContext(ThemeContext)
+
+
     return (
-        <form method="get" action="." onSubmit={handleSubmit(enviarContato)}>
-            <div>
+        <ThemeContext.Provider value = {themeHook}>
+       <form  method="get" action="." onSubmit={handleSubmit(enviarContato)}>
+            <div style={AppTheme[themeMode+"Container"]}>
                 <Container />
                 <Row>
                     <Column mobile='6' tablet='12' desktop='6'>
@@ -113,8 +123,17 @@ function App() {
                 </Row>
                 <input type="submit" name="Enviar"  onClick={() => resultado()}/>
             </div>
+            <Switch
+                style={{ transform:[{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
+                value={themeMode === "light" ? false : true}
+                onValueChange={() => setThemeMode(themeMode === "light"? "dark": "light")}
+            />  
         </form>
+        </ThemeContext.Provider>
+        
     );
 }
+
+
 
 export default App;
