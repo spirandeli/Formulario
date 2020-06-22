@@ -8,7 +8,6 @@ import Cpf from "./Component/ValidadorCpf";
 import mascaraDeTelefone from "./Component/Mascaras"; 
 import {ThemeContext} from "./Component/Temas/ThemeContext";
 import {AppTheme} from "./Component/Temas/Themes";
-import Switch from "react-switch";
 
 
 
@@ -67,8 +66,8 @@ function App() {
     }
 
 
-    const themeHook = useState("light");
-    const[themeMode, setThemeMode] = useContext(ThemeContext)
+    const themeHook = useContext(ThemeContext);
+    const[themeMode, setThemeMode] = useState("light")
 
 
     return (
@@ -123,11 +122,11 @@ function App() {
                 </Row>
                 <input type="submit" name="Enviar"  onClick={() => resultado()}/>
             </div>
-            <Switch
+            <button type="button"
                 style={{ transform:[{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
                 value={themeMode === "light" ? false : true}
-                onValueChange={() => setThemeMode(themeMode === "light"? "dark": "light")}
-            />  
+                onClick={() => setThemeMode(themeMode === "light"? "dark": "light")}
+            >Modo Escuro </button>  
         </form>
         </ThemeContext.Provider>
         
