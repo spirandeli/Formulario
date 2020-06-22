@@ -6,8 +6,8 @@ import Cep from "./Component/Cep";
 import useForm from "./Hooks/useForm";
 import Cpf from "./Component/ValidadorCpf";
 import mascaraDeTelefone from "./Component/Mascaras"; 
-import ThemeContext from "./Component/Temas";
-import AppTheme from "./Component/Temas";
+import {ThemeContext} from "./Component/Temas/ThemeContext";
+import {AppTheme} from "./Component/Temas/Themes";
 import Switch from "react-switch";
 
 

@@ -1,4 +1,4 @@
-const AppTheme = {
+export const  AppTheme = {
     light: {
         textColor: "#000",
     },
@@ -19,4 +19,3 @@ const AppTheme = {
     }    
 }
 
-export default AppTheme;
