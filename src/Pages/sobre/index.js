@@ -1,11 +1,33 @@
 import React from 'react'
+import {BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
-const sobre = () => {
+export const sobre = () => {
 
     return (
+        <Router>
+        <header>
+           
+            <ul>
+                <li>
+                    <Link to="/Pages/home/index.js">Home</Link>
+                </li>
+                <li>
+                    <Link to="/">Formulario</Link>
+                </li>
+                <li>
+                    <Link to="/Pages/sobre/index.js">Sobre</Link>
+                </li>
+            </ul>
+            
+
+        </header>
         <h1> boaaaaaaaaaaaaaaaa </h1>
+        </Router>
     )
 }
 
 
-export default sobre;
