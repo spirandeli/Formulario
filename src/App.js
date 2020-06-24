@@ -78,7 +78,7 @@ function App() {
     return (
         <ThemeContext.Provider value = {themeHook}>
         <header>
-            <Router>
+            
             <ul>
                 <li>
                     <Link to="/Pages/home/index.js">Home</Link>
@@ -90,7 +90,7 @@ function App() {
                     <Link to="/Pages/sobre/index.js">Sobre</Link>
                 </li>
             </ul>
-            </Router>
+           
 
         </header>
        <form  method="get" action="." onSubmit={handleSubmit(enviarContato)}>

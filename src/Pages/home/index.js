@@ -8,7 +8,7 @@ import {BrowserRouter as Router,
 export const home = () => {
 
     return (
-        <Router>
+        <div>
         <header>
             
             <ul>
@@ -26,7 +26,7 @@ export const home = () => {
 
         </header>
         <h1> aeeeeeeeeeeeeee </h1>
-        </Router>
+        </div>
     )
 }
 

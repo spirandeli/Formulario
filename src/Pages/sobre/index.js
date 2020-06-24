@@ -8,7 +8,7 @@ import {BrowserRouter as Router,
 export const sobre = () => {
 
     return (
-        <Router>
+        <div>
         <header>
            
             <ul>
@@ -26,7 +26,7 @@ export const sobre = () => {
 
         </header>
         <h1> boaaaaaaaaaaaaaaaa </h1>
-        </Router>
+        </div>
     )
 }
 
