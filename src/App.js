@@ -8,6 +8,11 @@ import Cpf from "./Component/ValidadorCpf";
 import mascaraDeTelefone from "./Component/Mascaras"; 
 import {ThemeContext} from "./Component/Temas/ThemeContext";
 import {AppTheme} from "./Component/Temas/Themes";
+import {BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 
 
@@ -72,6 +77,22 @@ function App() {
 
     return (
         <ThemeContext.Provider value = {themeHook}>
+        <header>
+            <Router>
+            <ul>
+                <li>
+                    <Link to="/Pages/home/index.js">Home</Link>
+                </li>
+                <li>
+                    <Link to="/">Formulario</Link>
+                </li>
+                <li>
+                    <Link to="/Pages/sobre/index.js">Sobre</Link>
+                </li>
+            </ul>
+            </Router>
+
+        </header>
        <form  method="get" action="." onSubmit={handleSubmit(enviarContato)}>
             <div style={AppTheme[themeMode+"Container"]}>
                 <Container />
