@@ -13,10 +13,14 @@ import {BrowserRouter as Router,
     Route,
     Link
   } from "react-router-dom";
+import ReCAPTCHA from 'react-google-recaptcha';
+
 
 
 
 function App() {
+
+
 
     const [cep, setCep] = useState("");
 
@@ -64,6 +68,10 @@ function App() {
             alert("Preencha novamente seu telefone")
         }
     }
+
+    function onChange ( valor )  { 
+        console.log( " Valor do Captcha: " ,  valor ) ;
+      }
 
     function resultado(){
         alert(`${nome}, ${cpf}, ${dataNascimento}, ${celular}, ${residencial}, ${cep}, ${estado}, 
@@ -141,6 +149,9 @@ function App() {
                         <label> Telefone Residencial </ label>
                         <InputMask onChange={e => setResidencial(e.target.value)} value={residencial} type="tel" name = "numeroResidencial" id = "numeroResidencial" mask="(99)9999-9999"/></Column>
                 </Row>
+                <ReCAPTCHA sitekey="6LfcKasZAAAAAP9Gp2dguh_ft7LuzoJAXTGaKTj2"
+                            onChange={ onChange }
+                />
                 <input type="submit" name="Enviar"  onClick={() => resultado()}/>
             </div>
             <button type="button"
