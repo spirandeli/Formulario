@@ -69,15 +69,26 @@ function App() {
         }
     }
 
-    function onChange ( valor )  { 
+    
+
+    function onChange (valor)  { 
+        valor=Boolean(valor)
         console.log( " Valor do Captcha: " ,  valor ) ;
+       
+        if(valor == true){
+            desabilitar = true
+            console.log(desabilitar)
+        }
+         
       }
+
 
     function resultado(){
         alert(`${nome}, ${cpf}, ${dataNascimento}, ${celular}, ${residencial}, ${cep}, ${estado}, 
                 ${cidade}, ${bairro}, ${rua}, ${complemento} `)
     }
 
+    let desabilitar = false;
 
     const themeHook = useContext(ThemeContext);
     const[themeMode, setThemeMode] = useState("light")
@@ -149,16 +160,21 @@ function App() {
                         <label> Telefone Residencial </ label>
                         <InputMask onChange={e => setResidencial(e.target.value)} value={residencial} type="tel" name = "numeroResidencial" id = "numeroResidencial" mask="(99)9999-9999"/></Column>
                 </Row>
-                <ReCAPTCHA sitekey="6LfcKasZAAAAAP9Gp2dguh_ft7LuzoJAXTGaKTj2"
+                <ReCAPTCHA  
+                            sitekey="6LfzCKwZAAAAAEdf6quBhLENd7FEIJgdVgJdzz59"
                             onChange={ onChange }
                 />
-                <input type="submit" name="Enviar"  onClick={() => resultado()}/>
+               
+            
             </div>
-            <button type="button"
+            <div style={{paddingTop:200}}> 
+                <input type="submit" name="Enviar" disabled={desabilitar} onClick={() => resultado()}/>
+                <button type="button"
                 style={{ transform:[{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
                 value={themeMode === "light" ? false : true}
                 onClick={() => setThemeMode(themeMode === "light"? "dark": "light")}
-            >Modo Escuro </button>  
+                    >Modo Escuro </button>  
+            </div>
         </form>
         </ThemeContext.Provider>
         
