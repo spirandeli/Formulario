@@ -20,7 +20,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 
 function App() {
 
-
+    const [desabilitar, setDesabilitar] = useState("true");
 
     const [cep, setCep] = useState("");
 
@@ -69,12 +69,17 @@ function App() {
         }
     }
 
-    let desabilitar = true;
+    
 
     function onChange (valor)  { 
         valor=Boolean(valor)
         console.log( " Valor do Captcha: " ,  valor ) ;
-        desabilitar = valor;
+        if(valor = true){
+            setDesabilitar(false)
+        }else{
+            setDesabilitar(true)
+        }
+        
          
       }
 
@@ -164,7 +169,7 @@ function App() {
             
             </div>
             <div style={{paddingTop:200}}> 
-                <input type="submit" name="Enviar" disabled={desabilitar} onClick={() => resultado()}/>
+                <input type="submit" name="Enviar" disabled={desabilitar} onChange={e => setDesabilitar(e.target.value)} onClick={() => resultado()}/>
                 <button type="button"
                 style={{ transform:[{ scaleX: 1.5 }, { scaleY: 1.5 }] }}
                 value={themeMode === "light" ? false : true}
