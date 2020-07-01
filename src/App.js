@@ -69,16 +69,12 @@ function App() {
         }
     }
 
-    
+    let desabilitar = true;
 
     function onChange (valor)  { 
         valor=Boolean(valor)
         console.log( " Valor do Captcha: " ,  valor ) ;
-       
-        if(valor == true){
-            desabilitar = true
-            console.log(desabilitar)
-        }
+        desabilitar = valor;
          
       }
 
@@ -88,7 +84,7 @@ function App() {
                 ${cidade}, ${bairro}, ${rua}, ${complemento} `)
     }
 
-    let desabilitar = false;
+    
 
     const themeHook = useContext(ThemeContext);
     const[themeMode, setThemeMode] = useState("light")
